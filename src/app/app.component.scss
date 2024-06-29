@@ -1,0 +1,30 @@
+.navbar {
+    padding: .7em;
+
+    color: rgb(230, 255, 241);
+    background-color: mediumseagreen;
+}
+
+.whole-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.main-game-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid red;
+
+    background-color: rgb(163, 250, 202);
+}
+
+.main-game {
+    margin: 1em;
+    padding: .5em;
+}
