@@ -1,6 +1,11 @@
 .navbar {
     padding: .7em;
 
+    font: {
+        size: 20px;
+        weight: bold;
+    }
+
     color: rgb(230, 255, 241);
     background-color: mediumseagreen;
 }
@@ -19,12 +24,90 @@
     justify-content: center;
     align-items: center;
 
-    border: 1px solid red;
-
     background-color: rgb(163, 250, 202);
 }
 
 .main-game {
     margin: 1em;
     padding: .5em;
+}
+
+.main-game-result {
+    margin: .3em;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.main-game-turn {
+    margin: .3em;
+
+    text-align: center;
+    font-size: 20px;
+}
+
+.main-game-board {
+    padding: .5em;
+
+    background-color: rgb(96, 238, 160);
+}
+
+.board-box-wrapper {
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+
+    background-color: rgb(14, 117, 62);
+}
+
+.board-box {
+    width: 36px;
+    height: 36px;
+
+    position: relative;
+
+    margin: 5px;
+    padding: 20px;
+
+    font-size: 32px;
+    line-height: 0;
+
+    cursor: pointer;
+    user-select: none;
+
+    background-color: rgb(96, 238, 160);
+
+    &:hover {
+        background-color: adjust-color($color: rgb(96, 238, 160), $saturation: 50%, $lightness: 15%);
+    }
+}
+
+.board-reset {
+    position: absolute;
+
+    padding: .5em;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    background-color: mediumseagreen;
+
+    &:hover {
+        color: rgb(230, 255, 241);
+    }
 }
