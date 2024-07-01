@@ -29,6 +29,8 @@ export class AppComponent {
   result: string = '';
   gameEnd: boolean = true;
 
+  gameBlur: string = '';
+
 
   ngOnInit() {
     for (let i = 0; i < 9; i++) {
@@ -76,6 +78,7 @@ export class AppComponent {
       if (box1.value !== '' && box1.value === box2.value && box1.value === box3.value) {
         this.result = `Player ${box1.value} wins!`;
         this.gameEnd = true;
+        this.gameBlur = 'blur(5px)';
         return;
       }
     }
@@ -96,5 +99,6 @@ export class AppComponent {
 
     this.result = '';
     this.gameEnd = false;
+    this.gameBlur = '';
   }
 }
