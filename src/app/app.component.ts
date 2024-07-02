@@ -27,7 +27,7 @@ export class AppComponent {
   player: string[] = ['x', 'o'];
   currentTurn = Math.floor(Math.random() * 2);
   result: string = '';
-  gameEnd: boolean = true;
+  gameEnd: boolean = false;
 
   gameBlur: string = '';
 
@@ -81,6 +81,12 @@ export class AppComponent {
         this.gameBlur = 'blur(5px)';
         return;
       }
+    }
+
+    if (this.boxes.every(box => box.value !== '')) {
+      this.result = `Draw!`;
+      this.gameEnd = true;
+      this.gameBlur = 'blur(5px)';
     }
   }
 
