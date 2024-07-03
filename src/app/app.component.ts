@@ -27,6 +27,7 @@ export class AppComponent {
   player: string[] = ['x', 'o'];
   currentTurn = Math.floor(Math.random() * 2);
   result: string = '';
+  resultAnimation: string = '';
   gameEnd: boolean = false;
 
   gameBlur: string = '';
@@ -77,14 +78,17 @@ export class AppComponent {
 
       if (box1.value !== '' && box1.value === box2.value && box1.value === box3.value) {
         this.result = `Player ${box1.value} wins!`;
+        this.resultAnimation = 'scalePopUp 500ms 1';
         this.gameEnd = true;
         this.gameBlur = 'blur(5px)';
+        this.currentTurn = Math.floor(Math.random() * 2);
         return;
       }
     }
 
     if (this.boxes.every(box => box.value !== '')) {
       this.result = `Draw!`;
+      this.resultAnimation = 'scalePopUp 1000ms 1';
       this.gameEnd = true;
       this.gameBlur = 'blur(5px)';
     }
@@ -104,7 +108,9 @@ export class AppComponent {
     }
 
     this.result = '';
+    this.resultAnimation = '';
     this.gameEnd = false;
     this.gameBlur = '';
+    this.currentTurn = Math.floor(Math.random() * 2);
   }
 }
