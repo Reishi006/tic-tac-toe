@@ -12,3 +12,18 @@ body {
 
     background-color: rgb(195, 255, 222);
 }
+
+
+//ANIMATIONS
+
+@keyframes scalePopUp {
+    10% {
+        transform: scale(50%);
+    }
+    60% {
+        transform: scale(120%);
+    }
+    90% {
+        transform: scale(100%);
+    }
+}
