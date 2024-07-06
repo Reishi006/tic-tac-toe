@@ -6,7 +6,7 @@ class Box {
   constructor(index: number, value: string, imagePath: string) {
     this.index = index;
     this.value = value;
-    this.imagePath = imagePath
+    this.imagePath = imagePath;
   }
 
   index = 0;
