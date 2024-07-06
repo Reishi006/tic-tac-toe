@@ -13,6 +13,10 @@ body {
     background-color: rgb(195, 255, 222);
 }
 
+.appear-anim {
+    animation: appear .2s forwards 1;
+}
+
 
 //ANIMATIONS
 
@@ -34,5 +38,14 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0%);
+    }
+    100% {
+        transform: scale(100%);
     }
 }
