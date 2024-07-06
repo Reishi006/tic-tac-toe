@@ -16,8 +16,12 @@
             class='board-box'
             (click)='handleBoxClick(i)'
             [style.filter]='gameBlur'
+            (click)="boxImg.classList.add('appear-anim')"
           >
-            <img src={{box.imagePath}}/>
+            <img 
+              #boxImg
+              src={{box.imagePath}}
+            />
           </div>
           <div 
             *ngIf="gameEnd"
