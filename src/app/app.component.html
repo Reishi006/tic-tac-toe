@@ -14,7 +14,7 @@
           <div
             *ngFor="let box of boxes; let i = index" 
             class='board-box'
-            (click)='handleBoxClick(i)'
+            (click)='!gameEnd && handleBoxClick(i)'
             [style.filter]='gameBlur'
             (click)="boxImg.classList.add('appear-anim')"
           >
