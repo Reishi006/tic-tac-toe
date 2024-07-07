@@ -88,6 +88,8 @@
     background-color: rgb(96, 238, 160);
 
     &:hover {
+        box-shadow: 0px 0px 10px inset adjust-color($color: rgb(36, 243, 129), $saturation: 50%, $lightness: 0%);
+
         background-color: adjust-color($color: rgb(96, 238, 160), $saturation: 50%, $lightness: 15%);
     }
 }
