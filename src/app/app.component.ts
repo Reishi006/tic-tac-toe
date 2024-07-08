@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 class Box {
@@ -24,6 +24,8 @@ class Box {
 export class AppComponent {
   boxes: Box[] = [];
 
+  //IDEA: for each box add keyup event listener listening for a certain number based on index
+
   player: string[] = ['x', 'o'];
   currentTurn = Math.floor(Math.random() * 2);
   result: string = '';
@@ -31,6 +33,13 @@ export class AppComponent {
   gameEnd: boolean = false;
 
   gameBlur: string = '';
+
+  @HostListener('document:keyup', ['$event'])
+  onKeyUp(e:KeyboardEvent) {
+    if (e.key === 'Enter' && this.gameEnd) {
+      this.resetBoard();
+    }
+  }
 
 
   ngOnInit() {
