@@ -24,8 +24,6 @@ class Box {
 export class AppComponent {
   boxes: Box[] = [];
 
-  //IDEA: for each box add keyup event listener listening for a certain number based on index
-
   player: string[] = ['x', 'o'];
   currentTurn = Math.floor(Math.random() * 2);
   result: string = '';
@@ -34,10 +32,26 @@ export class AppComponent {
 
   gameBlur: string = '';
 
+  indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  letters = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
+
+  //IDEA: save game state to localstorage
+
   @HostListener('document:keyup', ['$event'])
   onKeyUp(e:KeyboardEvent) {
-    if (e.key === 'Enter' && this.gameEnd) {
+
+    //TO DO: make it a switch case
+    if ((e.key === 'Enter' && this.gameEnd) || e.key === 'Escape' || e.key === 'r') {
       this.resetBoard();
+    }
+    if (!this.gameEnd) {
+      if (e.key in this.indexes) {
+        this.setBoxImage(Number(e.key));
+        this.checkWin();
+      } else if (this.letters.includes(e.key)) {
+        this.setBoxImage(this.letters.indexOf(e.key));
+        this.checkWin();
+      }
     }
   }
 
