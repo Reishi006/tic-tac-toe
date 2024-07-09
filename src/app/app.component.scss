@@ -94,6 +94,18 @@
     }
 }
 
+.board-box-index {
+    position: absolute;
+
+    top: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+
+    font-size: 12px;
+
+    color: rgb(103, 133, 115);
+}
+
 .board-reset {
     position: absolute;
 
