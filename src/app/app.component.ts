@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostListener} from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, HostListener, Inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 class Box {
@@ -22,6 +22,21 @@ class Box {
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    const localStorage = document.defaultView?.localStorage;
+
+    if (localStorage) {
+      let boxesState: string | null = localStorage?.getItem('gameState');
+      if (boxesState !== null) {
+        this.boxes = JSON.parse(boxesState);
+      } else {
+        for (let i = 0; i < 9; i++) {
+          this.boxes.push(new Box(i, '', ''));
+        }
+      }
+    }
+  }
+
   boxes: Box[] = [];
 
   player: string[] = ['x', 'o'];
@@ -35,7 +50,7 @@ export class AppComponent {
   indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   letters = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
 
-  //IDEA: save game state to localstorage
+  //TO DO: fix the no reset on game draw after it is being loaded from localStorage
 
   @HostListener('document:keyup', ['$event'])
   onKeyUp(e:KeyboardEvent) {
@@ -57,10 +72,6 @@ export class AppComponent {
 
 
   ngOnInit() {
-    for (let i = 0; i < 9; i++) {
-      this.boxes.push(new Box(i, '', ''));
-    }
-
     console.log(this.boxes);
     console.log(this.currentTurn);
   }
@@ -78,6 +89,8 @@ export class AppComponent {
       this.boxes[i].imagePath = `${this.player[this.currentTurn]}.svg`;
       this.currentTurn = 0;
     }
+
+    localStorage.setItem('gameState', JSON.stringify(this.boxes));
   }
 
   checkWin() {
