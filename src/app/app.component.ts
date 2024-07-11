@@ -29,6 +29,7 @@ export class AppComponent {
       let boxesState: string | null = localStorage?.getItem('gameState');
       if (boxesState !== null) {
         this.boxes = JSON.parse(boxesState);
+        this.checkWin();
       } else {
         for (let i = 0; i < 9; i++) {
           this.boxes.push(new Box(i, '', ''));
@@ -50,7 +51,6 @@ export class AppComponent {
   indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   letters = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
 
-  //TO DO: fix the no reset on game draw after it is being loaded from localStorage
 
   @HostListener('document:keyup', ['$event'])
   onKeyUp(e:KeyboardEvent) {
