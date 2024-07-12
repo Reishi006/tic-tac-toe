@@ -55,18 +55,25 @@ export class AppComponent {
   @HostListener('document:keyup', ['$event'])
   onKeyUp(e:KeyboardEvent) {
 
-    //TO DO: make it a switch case
-    if ((e.key === 'Enter' && this.gameEnd) || e.key === 'Escape' || e.key === 'r') {
-      this.resetBoard();
-    }
-    if (!this.gameEnd) {
-      if (e.key in this.indexes) {
-        this.setBoxImage(Number(e.key));
-        this.checkWin();
-      } else if (this.letters.includes(e.key)) {
-        this.setBoxImage(this.letters.indexOf(e.key));
-        this.checkWin();
-      }
+    switch(e.key) {
+      case 'Enter':
+        if (this.gameEnd) {
+          this.resetBoard();
+        }
+        break;
+      case 'Escape' || 'r':
+        this.resetBoard();
+        break;
+      default:
+        if (!this.gameEnd) {
+          if (e.key in this.indexes) {
+            this.setBoxImage(Number(e.key));
+            this.checkWin();
+          } else if (this.letters.includes(e.key)) {
+            this.setBoxImage(this.letters.indexOf(e.key));
+            this.checkWin();
+          }
+        }
     }
   }
 
@@ -148,5 +155,7 @@ export class AppComponent {
     this.gameEnd = false;
     this.gameBlur = '';
     this.currentTurn = Math.floor(Math.random() * 2);
+
+    localStorage.setItem('gameState', JSON.stringify(this.boxes));
   }
 }
