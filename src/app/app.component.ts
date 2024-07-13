@@ -79,8 +79,7 @@ export class AppComponent {
 
 
   ngOnInit() {
-    console.log(this.boxes);
-    console.log(this.currentTurn);
+    // do something on init
   }
 
   setBoxImage(i: number) {
@@ -138,8 +137,6 @@ export class AppComponent {
   }
 
   handleBoxClick(i: number) {
-    console.log(i);
-
     this.setBoxImage(i);
     this.checkWin();
   }
