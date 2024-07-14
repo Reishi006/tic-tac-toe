@@ -47,6 +47,7 @@ export class AppComponent {
   gameEnd: boolean = false;
 
   gameBlur: string = '';
+  gameBlock: string = 'none';
 
   indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   letters = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
@@ -123,6 +124,7 @@ export class AppComponent {
         this.resultAnimation = 'scalePopUp 500ms 1';
         this.gameEnd = true;
         this.gameBlur = 'blur(5px)';
+        this.gameBlock = 'block';
         this.currentTurn = Math.floor(Math.random() * 2);
         return;
       }
@@ -133,6 +135,7 @@ export class AppComponent {
       this.resultAnimation = 'scalePopUp 1000ms 1';
       this.gameEnd = true;
       this.gameBlur = 'blur(5px)';
+      this.gameBlock = 'block';
     }
   }
 
@@ -151,6 +154,7 @@ export class AppComponent {
     this.resultAnimation = '';
     this.gameEnd = false;
     this.gameBlur = '';
+    this.gameBlock = 'none';
     this.currentTurn = Math.floor(Math.random() * 2);
 
     localStorage.setItem('gameState', JSON.stringify(this.boxes));
