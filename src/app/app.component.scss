@@ -1,6 +1,9 @@
 .navbar {
     padding: .7em;
 
+    display: flex;
+    justify-content: space-between;
+
     font: {
         size: 20px;
         weight: bold;
