@@ -25,6 +25,21 @@ a {
     }
 }
 
+.navbar {
+    padding: .7em;
+
+    display: flex;
+    justify-content: space-between;
+
+    font: {
+        size: 20px;
+        weight: bold;
+    }
+
+    color: rgb(230, 255, 241);
+    background-color: mediumseagreen;
+}
+
 .appear-anim {
     animation: appear .2s forwards 1;
 }
