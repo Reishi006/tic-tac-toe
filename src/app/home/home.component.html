@@ -1,0 +1,36 @@
+<div class='whole-wrapper'>
+    <div></div>
+    <div class='main-game-wrapper'>
+      <main class='main-game'>
+        <div 
+          class='main-game-result'
+          [style.animation]='resultAnimation'
+        >{{result}}</div>
+        <div class='main-game-turn'><b>{{player[currentTurn]}}</b> turn</div>
+        <div class='main-game-board'>
+          <div class='board-box-wrapper'>
+            <div class="board-box-blur" [style.display]='gameBlock'></div>
+            <div
+              *ngFor="let box of boxes; let i = index" 
+              class='board-box'
+              [style.filter]='gameBlur'
+              (click)='!gameEnd && handleBoxClick(i)'
+              (click)="boxImg.classList.add('appear-anim')"
+            >
+              <img 
+                #boxImg
+                src={{box.imagePath}}
+              />
+              <div class="board-box-index">{{ i }}</div>
+            </div>
+            <div 
+              *ngIf="gameEnd"
+              (click)="resetBoard()"
+              class='board-reset'
+            >Reset?</div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div></div>
+  </div>
