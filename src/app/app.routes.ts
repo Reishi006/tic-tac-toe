@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { KeyboardControlComponent } from './keyboard-control/keyboard-control.component';
 
 
-export const routes: Routes = [{path: '', component: AppComponent}, {path: 'keyboard-control', component: KeyboardControlComponent}];
+export const routes: Routes = [{path: '', component: HomeComponent}, {path: 'keyboard-control', component: KeyboardControlComponent}];
