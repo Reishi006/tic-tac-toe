@@ -1,7 +1,5 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { captureError } from 'rxjs/internal/util/errorContext';
-
 
 @Component({
   selector: 'app-keyboard-control',
