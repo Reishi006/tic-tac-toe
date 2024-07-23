@@ -22,7 +22,7 @@
                 src={{box.imagePath}}
               />
               <div class="board-box-index">{{ i }}</div>
-              <!--TO DO: Add letter keyboard shortcuts indicators-->
+              <div class="board-box-letter">{{ letters[i].toUpperCase() }}</div>
             </div>
             <div 
               *ngIf="gameEnd"
