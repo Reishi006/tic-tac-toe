@@ -62,7 +62,10 @@ export class HomeComponent {
           this.resetBoard();
         }
         break;
-      case 'Escape' || 'r':
+      case 'r':
+        this.resetBoard();
+        break;
+      case 'Escape':
         this.resetBoard();
         break;
       default:
