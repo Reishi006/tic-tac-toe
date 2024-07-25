@@ -18,6 +18,10 @@
 .main-game-board {
     padding: .5em;
 
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 5px rgb(61, 197, 122);
+
     background-color: rgb(96, 238, 160);
 }
 
@@ -30,6 +34,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
+
+    border-radius: .2rem;
 
     background-color: rgb(14, 117, 62);
 }
@@ -57,6 +63,8 @@
 
     font-size: 32px;
     line-height: 0;
+
+    border-radius: .2rem;
 
     cursor: pointer;
     user-select: none;
